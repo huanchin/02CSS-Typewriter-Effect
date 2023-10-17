@@ -1,0 +1,76 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Source Code Pro", monospace;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #e6b490;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-size: clamp(1rem, 3vw + 1rem, 4rem);
+  margin: 2rem 0rem;
+  position: relative;
+}
+
+h1::before,
+h1::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+h1::before {
+  background: #e6b490;
+  animation: typewriter 6s steps(23) 1.5s forwards;
+  /* animation-direction: alternate; */
+  /* animation-iteration-count: infinite; */
+}
+
+h1::after {
+  width: 0.125em;
+  background: black;
+  animation: typewriter 6s steps(23) 1.5s forwards,
+    blink 700ms steps(40) infinite;
+}
+
+.subtitle {
+  color: rgb(115, 115, 115);
+  font-size: 2rem;
+  font-weight: 400;
+  opacity: 0;
+  transform: translateY(3rem);
+  animation: fadeInUp 2s ease 7s forwards;
+}
+
+@keyframes typewriter {
+  to {
+    left: 100%;
+  }
+}
+
+@keyframes blink {
+  to {
+    background: transparent;
+  }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
